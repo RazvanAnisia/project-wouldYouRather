@@ -4,9 +4,7 @@ import {
   _saveQuestionAnswer } from '../utils/_DATA'
 import {
   saveUserQuestion,
-  removeUserQuestion,
   saveUserAnswer,
-  removeUserAnswer,
   fetchUsers } from './users'
 import {
   saveQuestion,

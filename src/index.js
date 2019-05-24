@@ -6,6 +6,7 @@ import reducer from './reducers'
 import middleware from './middleware'
 import App from './components/App';
 import { composeWithDevTools } from 'redux-devtools-extension'
+import './index.css'
 
 const store = createStore(reducer, composeWithDevTools(middleware))
 
@@ -17,9 +18,6 @@ ReactDOM.render(
 )
 
 
-
-
-ReactDOM.render(<App />, document.getElementById('root'));
 
 
 
