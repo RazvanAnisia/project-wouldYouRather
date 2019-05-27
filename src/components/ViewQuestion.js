@@ -3,30 +3,32 @@ import { Link }  from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
-class QuestionPreview extends Component{
+class ViewQuestion extends Component{
    
     render() {
-        const { question } = this.props;
+        const { question, answered } = this.props;
         return (
             <div className="question-list-container">
-            <ul class="list-group">
-            <div class="list-group-item">
-                <div class="card" >
-                <div class="card-header">{this.props.author.name}</div>
-                <div class="card-body">
-                    <img  style={{width:'150px'}} src={this.props.author.avatarURL} />
+            <ul className="list-group">
+            <div className="list-group-item">
+                <div className="card" >
+                <div className="card-header">{this.props.author.name} asked</div>
+                <div className="card-body">
+                    <img  alt="avatar" style={{width:'150px'}} src={this.props.author.avatarURL} />
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">Would you rather:</h5>
-                    <ul class="list-group col-10 mb-3">
-                        <p class="list-group-item">
+                <div className="card-body">
+                    <h5 className="card-title">Would you rather:</h5>
+                    <ul className="list-group col-10 mb-3">
+                        <p className="list-group-item">
                             {question.optionOne.text}
                         </p>
-                        <p class="list-group-item">
+                        <p className="list-group-item">
                         {question.optionTwo.text}
                         </p>
                     </ul>
-                    <Link to={`/questions/${question.id}`} class="btn btn-primary">Answer Question</Link>
+                    <Link to={`/questions/${question.id}`} className="btn btn-primary">
+                       { answered ? "View Results" :   "View Poll" }
+                    </Link>
                 </div>
                 </div>
             </div>
@@ -44,4 +46,4 @@ function mapStateToProps({users} , ownProps){
     }
 }
 
-export default connect(mapStateToProps)( QuestionPreview );
+export default connect(mapStateToProps)( ViewQuestion );

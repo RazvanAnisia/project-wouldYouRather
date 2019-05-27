@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { connect } from 'react-redux'
 import LoadingBar from 'react-redux-loading-bar'
-import {  Row, Col } from 'react-bootstrap'
 import Navigation from './Navigation'
-import Login from './Login'
-import Homepage from './Homepage'
-import NewQuestion from './NewQuestion'
-import Question from './Question'
 import Leadboard from './Leadboard'
 import { getAuthedUserFromStorage } from '../actions/authedUser'
 import { fetchInitialData } from '../actions/shared'
 import noResultsPage from './NoResultPage'
+import Login from './Login'
+import Homepage from './Homepage'
+import NewQuestion from './NewQuestion'
+import Question from './Question'
 
 class App extends Component {
 
@@ -23,8 +22,6 @@ class App extends Component {
   guestRoutes = () => (
     <Switch>
       <Route  path='/' component={Login} />
-      {/* <Redirect path='*' component={Login}/> */}
-      {/* <Route component = {noResultsPage}/> */}
     </Switch>
   )
 
@@ -39,19 +36,18 @@ class App extends Component {
   )
 
   showContent = () => (
-        <Row>
+        <div>
             {this.props.displayLogin
               ? this.guestRoutes()
               : this.authedRoutes()}
-            
-        </Row>
+        </div>
   )
 
   render() {
     return (
       <BrowserRouter>
         <div>
-          <LoadingBar  style={{ backgroundColor: 'purple', height: '5px' }} className="loading" />
+          <LoadingBar  style={{ backgroundColor: 'purple', height: '3px' }} className="loading" />
           <div className="App">
             <Navigation />
             {this.props.loading === true

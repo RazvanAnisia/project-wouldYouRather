@@ -6,7 +6,9 @@ import {
 export default function authedUser (state = null, action) {
   switch (action.type) {
     case SET_AUTHED_USER :
+      return action.id;
     case GET_AUTHED_USER_FROM_STORAGE :
+      return action.id
     case LOGOUT_AUTHED_USER :
       return action.id
     default :

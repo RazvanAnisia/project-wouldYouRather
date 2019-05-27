@@ -3,6 +3,7 @@ import {
   GET_AUTHED_USER_FROM_STORAGE,
   LOGOUT_AUTHED_USER } from '../actions/authedUser'
 
+  //use local storage for auth
 const localStorage = window.localStorage;
 
 const authedUser = (store) => (next) => (action) => {

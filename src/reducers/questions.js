@@ -1,6 +1,6 @@
 import {
-  SAVE_QUESTION,  
-  SAVE_QUESTION_VOTE,  
+  SAVE_QUESTION,
+  SAVE_QUESTION_VOTE,
   QUESTIONS_UPDATE } from '../actions/questions'
 
 export default function questions (state = {}, action) {
@@ -10,10 +10,6 @@ export default function questions (state = {}, action) {
         ...state,
         [action.question.id]: action.question,
       }
-    // case REMOVE_QUESTION : {
-    //   const { [action.question.id]: value, ...newState} = state
-    //   return newState
-    // }
     case SAVE_QUESTION_VOTE : {
       const votes = state[action.qid][action.answer].votes
       return {
@@ -27,18 +23,7 @@ export default function questions (state = {}, action) {
         }
       }
     }
-    // case REMOVE_QUESTION_VOTE :
-    //   return {
-    //     ...state,
-    //     [action.qid] : {
-    //       ...state[action.qid],
-    //       [action.answer] : {
-    //         ...state[action.qid][action.answer],
-    //         votes : state[action.qid][action.answer]
-    //           .votes.filter((vote) => vote !== action.authedUser)
-    //       }
-    //     }
-    //   }
+  
     case QUESTIONS_UPDATE :
       return {
         ...state,

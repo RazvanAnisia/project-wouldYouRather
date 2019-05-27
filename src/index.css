@@ -16,3 +16,12 @@ code {
   width: 300px;
   height: auto;
 }
+
+.navbar-user-info  .nav-link{
+   color:white;
+   margin-top:-10px;
+   margin-left:-12px;
+}
+.avatar {
+  margin-bottom:-20px;
+}

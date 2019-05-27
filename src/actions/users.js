@@ -4,6 +4,14 @@ export const SAVE_USER_ANSWER = 'SAVE_USER_ANSWER'
 export const SAVE_USER_QUESTION = 'SAVE_USER_QUESTION'
 export const USERS_UPDATE = 'USERS_UPDATE'
 
+export function fetchUsers () {
+  return (dispatch) => {
+    return _getUsers().then((users) => {
+      dispatch(updateUsers(users))
+    })
+  }
+}
+
 export function saveUserQuestion (user, qid) {
   return {
     type: SAVE_USER_QUESTION,
@@ -21,7 +29,6 @@ export function saveUserAnswer (user, qid, answer) {
   }
 }
 
-/* update state after fetch */
 export function updateUsers (users) {
   return {
     type: USERS_UPDATE,
@@ -29,11 +36,3 @@ export function updateUsers (users) {
   }
 }
 
-/* async call to fetch all users */
-export function fetchUsers () {
-  return (dispatch) => {
-    return _getUsers().then((users) => {
-      dispatch(updateUsers(users))
-    })
-  }
-}

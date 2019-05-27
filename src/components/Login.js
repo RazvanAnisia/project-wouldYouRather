@@ -12,21 +12,23 @@ class Login extends Component {
   };
   render() {
     return (
-      <div className="container card col-6 mt-3">
-        <h5 class="card-header">Please Log In</h5>
-        <div className="container">
-          <img className="login-img text-center"
+      <div className="container card col-3 mt-3">
+        <h5 className="card-header">Please Log In</h5>
+        <div className="container" style={{flexDirection: "column", display: "flex", alignItems: "center"}}>
+          <img alt="login " className="login-img"
             src="https://prodimage.images-bn.com/pimages/9781620091623_p0_v6_s550x406.jpg"/>
-          <form  style={{margin:'0 auto'}}className="login-form col-6" onSubmit={this.submitHandler}>
-            <div class="form-group">
-              <select class="form-control" id="exampleFormControlSelect1">
+          <form  style={{margin:'0 auto'}} className="login-form col-10" onSubmit={this.submitHandler}>
+            <div className="form-group text-center">
+              <select className="form-control" id="exampleFormControlSelect1">
                 {Object.values(this.props.users).map(user => (
-                  <option key={user.id} value={user.id}>
+                  <option 
+                    key={user.id}
+                    value={user.id}>
                     {user.id}
                   </option>
                 ))}
               </select>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary mt-1">
                 Submit
               </button>
             </div>
