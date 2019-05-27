@@ -2,31 +2,45 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 class Leadboard extends Component {
-    render() {
+
+    showLeaders = () => {
         
         return (
             <div className="container col-6 mt-3">
-            {this.props.leaders.map((leader, index) => (
-               (<div className="list-group" key={index}>
-               <div className="list-group-item">
-               <span className="badge badge-primary">{index + 1}</span>
-               <div className="row">                     
-                   <img alt="avatar" className="col-3" style={{height:'180px'}} src={leader.avatarURL} />
-                   <ul className="list-group col-6">
-                       <li className="list-group-item"> {(Object.keys(leader.answers)).length} Answered Questions </li>
-                       <li className="list-group-item"> { leader.questions.length } Created Questions </li>
-                   </ul>
-                   <div className="card col-3" >
-                       <div className="card-body">
-                           <h5 className="card-title">Score</h5>
-                           <h6 className="card-subtitle mb-2 text-muted"> { (Object.keys(leader.answers)).length + leader.questions.length } </h6>
-                       </div>
-                   </div>
-               </div>
-               </div>
-           </div>)
-              ))}
+                {this.props.leaders.map((leader, index) => {
+                const answeredQuestions = (Object.keys(leader.answers)).length
+                const createdQuestions = leader.questions.length
+                const score = (Object.keys(leader.answers)).length + leader.questions.length
+               
+                return (
+                <div className="list-group" key={index}>
+                <div className="list-group-item">
+                    <span className="badge badge-primary">{index + 1}</span>
+                    <div className="row">                     
+                        <img alt="avatar" className="col-3" style={{height:'180px'}} src={leader.avatarURL} />
+                        <ul className="list-group col-6">
+                            <li className="list-group-item"> {answeredQuestions} Answered Questions </li>
+                            <li className="list-group-item"> { createdQuestions } Created Questions </li>
+                        </ul>
+                        <div className="card col-3" >
+                            <div className="card-body">
+                                <h5 className="card-title">Score</h5>
+                                <h6 className="card-subtitle mb-2 text-muted"> { score } </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>)}
+                )}
             </div>
+        )
+    }
+    render() {
+                
+        return (
+           <div>
+               {this.showLeaders()}
+           </div>
         )
     }
 }

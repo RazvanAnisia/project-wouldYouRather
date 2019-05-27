@@ -19,32 +19,33 @@ class App extends Component {
     this.props.dispatch(fetchInitialData())
   }
 
-  guestRoutes = () => (
-    <Switch>
-      <Route  path='/' component={Login} />
-    </Switch>
-  )
+  showContent = () => { 
+    const noAuthRoutes = (
+      <Switch>
+        <Route  path='/' component={Login} />
+      </Switch>)
+     
+      const authedRoutes = (
+      <Switch>
+        <Route exact path='/' component={Homepage} />
+        <Route exact path='/add' component={NewQuestion} />
+        <Route exact path='/leadboard' component={Leadboard} />
+        <Route exact path='/questions/:question_id' component={Question} />
+        <Route  component = {noResultsPage}/>
+      </Switch>)
 
-  authedRoutes = () => (
-    <Switch>
-      <Route exact path='/' component={Homepage} />
-      <Route exact path='/add' component={NewQuestion} />
-      <Route exact path='/leadboard' component={Leadboard} />
-      <Route exact path='/questions/:questionId' component={Question} />
-      <Route  component = {noResultsPage}/>
-    </Switch>
-  )
-
-  showContent = () => (
+   return(
         <div>
             {this.props.displayLogin
-              ? this.guestRoutes()
-              : this.authedRoutes()}
+              ? noAuthRoutes
+              : authedRoutes}
         </div>
-  )
+   )     
+  }
 
   render() {
-    return (
+   
+     return (
       <BrowserRouter>
         <div>
           <LoadingBar  style={{ backgroundColor: 'purple', height: '3px' }} className="loading" />
