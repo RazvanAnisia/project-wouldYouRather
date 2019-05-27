@@ -38,7 +38,7 @@ class Navigation extends Component {
             src={this.props.avatar}
           />
           <span className="nav-item">
-            <a className="nav-link" href="#" onClick={this.logout}>
+            <a className="nav-link" href='/' onClick={this.logout}>
               Logout
             </a>
           </span>

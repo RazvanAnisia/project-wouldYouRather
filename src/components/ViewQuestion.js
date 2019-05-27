@@ -42,7 +42,6 @@ function mapStateToProps({users} , ownProps){
     const questionAuthor = ownProps.question.author
     return {
         author: users[questionAuthor],
-
     }
 }
 
