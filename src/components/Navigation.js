@@ -24,8 +24,8 @@ class Navigation extends Component {
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/leadboard">
-              Leadboard
+            <NavLink className="nav-link" to="/leaderboard">
+              Leaderboard
             </NavLink>
           </li>
         </ul>
