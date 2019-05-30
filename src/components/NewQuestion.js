@@ -10,6 +10,7 @@ class NewQuestion extends Component {
         
         //dispatch the action
         this.props.dispatch(handleSaveQuestion(this.props.authedUser, optionOne, optionTwo))
+        //send to homepage
         this.props.history.push('/')
     }
 

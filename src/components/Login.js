@@ -7,8 +7,8 @@ class Login extends Component {
     e.preventDefault();
     const user = e.target.children[0].children[0].value;
     this.props.dispatch(setAuthedUser(user));
-    //send newly logged in user to the homepage always
-    this.props.history.push("/");
+    //send newly logged in user to the homepage
+    // this.props.history.push("/");
   };
   render() {
     return (

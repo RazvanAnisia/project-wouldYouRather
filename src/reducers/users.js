@@ -1,8 +1,4 @@
-import {
-  USERS_UPDATE,
-  SAVE_USER_QUESTION,  
-  SAVE_USER_ANSWER,
-   } from '../actions/users'
+import { USERS_UPDATE, SAVE_USER_QUESTION, SAVE_USER_ANSWER } from '../actions/users'
 
 export default function users (state = {}, action) {
   switch(action.type) {
@@ -14,7 +10,6 @@ export default function users (state = {}, action) {
           questions: [...state[action.user].questions, action.qid]
         }
       }
-   
     case SAVE_USER_ANSWER :
       return {
         ...state,
@@ -26,7 +21,6 @@ export default function users (state = {}, action) {
           }
         }
       }
-   
     case USERS_UPDATE :
       return {
         ...state,

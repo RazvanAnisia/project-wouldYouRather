@@ -1,7 +1,8 @@
 import { showLoading, hideLoading } from 'react-redux-loading-bar'
 import { _saveQuestion, _saveQuestionAnswer } from '../utils/_DATA'
+import { saveQuestionVote, saveQuestion, fetchQuestions } from './questions'
 import { saveUserQuestion, saveUserAnswer, fetchUsers } from './users'
-import { saveQuestion, saveQuestionVote, fetchQuestions } from './questions'
+
 
 export function handleSaveQuestion (author, optionOneText, optionTwoText) {
   const question = {
@@ -10,11 +11,11 @@ export function handleSaveQuestion (author, optionOneText, optionTwoText) {
     optionTwoText: optionTwoText
   }
   return (dispatch) => {
-    return _saveQuestion(question).then((q) => {
-      dispatch(saveQuestion(q))
-      dispatch(saveUserQuestion(q.author, q.id))
+    return _saveQuestion(question).then((question) => {
+      dispatch(saveQuestion(question))
+      dispatch(saveUserQuestion(question.author, question.id))
     }).catch(() => {     
-      console.log('There was an error saving your question. Please try again.')
+      alert('There was an error saving your question.')
     })
   }
 }
@@ -29,12 +30,12 @@ export function handleVote (authedUser, qid, answer) {
       qid: qid,
       answer: answer
     }).catch(() => {     
-      console.log('There was an error saving your vote. Please try again.')
+      alert('There was an error saving your vote.')
     })
   }
 }
 
-//fetch the initial data for the aoo
+//fetch the inital data to initialize the app
 export function fetchInitialData () {
   return (dispatch) => Promise.all([
     dispatch(showLoading()),

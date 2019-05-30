@@ -17,8 +17,8 @@ class Leadboard extends Component {
                 <div className="list-group-item">
                     <span className="badge badge-primary">{index + 1}</span>
                     <div className="row">                     
-                        <img alt="avatar" className="col-3" style={{height:'180px'}} src={leader.avatarURL} />
-                        <ul className="list-group col-6">
+                        <img alt="avatar" className="col-4" style={{height:'180px'}} src={leader.avatarURL} />
+                        <ul className="list-group col-5">
                             <li className="list-group-item"> {answeredQuestions} Answered Questions </li>
                             <li className="list-group-item"> { createdQuestions } Created Questions </li>
                         </ul>
